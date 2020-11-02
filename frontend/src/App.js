@@ -5,7 +5,6 @@ import Footer from './components/Footer'
 import HomeScreen from './screents/HomeScreen'
 import ProductScreen from './screents/ProductScreen'
 
-
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 function App() {
