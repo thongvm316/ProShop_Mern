@@ -4,4 +4,4 @@
 
 3. Getting Start with MongoDB
 
-test reviewSchema in model
+test reviewSchema in model productModel
