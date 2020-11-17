@@ -7,8 +7,9 @@ import Product from '../models/productModel.js'
 // Fetch all product
 router.get('/', asyncHandler(async (req, res) => {
     const products = await Product.find({})
-    res.status(401)
-    throw new Error('Not Auth')
+    // res.status(401)
+    // throw new Error('Not Auth') 
+    // --> test with dispatch error
     res.json(products)
 })); // asyncHandler intead of trycatch
 
