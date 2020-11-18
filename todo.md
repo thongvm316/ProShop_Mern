@@ -6,4 +6,8 @@
 
 4. Redux
 
+6. Adding the shopping cart
+
+Tom -> Problem in cartReducer
+
 test reviewSchema in model productMode
