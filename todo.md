@@ -1,3 +1,5 @@
+*. Cau truc thu muc
+
 1. Starting the frontend
 
 2. Serving & Fetching Data From Express
@@ -8,6 +10,5 @@
 
 6. Adding the shopping cart
 
-Tom -> Problem in cartReducer
+7. BE User Authencation
 
-test reviewSchema in model productMode

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/Message'
-import { addToCart } from '../actions/cartAction'
+import { addToCart, removeFormCart } from '../actions/cartAction'
 
 const CartScreen = (props) => {
     const { match, location, history } = props
@@ -13,6 +13,7 @@ const CartScreen = (props) => {
     const dispatch = useDispatch()
 
     const cart = useSelector(state => state.cart)
+    // console.log(cart);
     const { cartItems } = cart
     
     useEffect(() => {
@@ -22,8 +23,13 @@ const CartScreen = (props) => {
     }, [dispatch, productId, qty])
 
     const removeFormCartHandler = (id) => {
-        console.log(`object`);
+        dispatch(removeFormCart(id))
     }
+
+    const checkoutHandler = () => {
+        history.push('/login?redirect=shipping')
+    }
+
     return (
         <Row>
             <Col md={8}>
@@ -69,6 +75,19 @@ const CartScreen = (props) => {
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
                             <h2>Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items</h2>
+                            ${cartItems.reduce((acc, item) => {
+                                return acc + item.qty*item.price
+                            }, 0).toFixed(2)}
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            <Button
+                                type='button'
+                                className='btn-block'
+                                disabled={cartItems.length === 0}
+                                onClick={checkoutHandler}
+                            >
+                                Proceed To Checkout
+                            </Button>
                         </ListGroup.Item>
                     </ListGroup>
                 </Card>
